@@ -1,0 +1,16 @@
+{"level":"info","message":"New ${operation} operation requested: ${num1} ${operation} ${num2}!","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}
+{"level":"info","message":"Parameters 1 and 3 received for addition","service":"calculator-microservice"}
+{"level":"info","message":"New ${operation} operation requested: ${num1} ${operation} ${num2}!","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}
+{"level":"info","message":"Parameters 5 and 5 received for division","service":"calculator-microservice"}
+{"level":"info","message":"Parameters 25 and 5 received for division","service":"calculator-microservice"}
+{"level":"info","message":"Parameters 0 and 5 received for division","service":"calculator-microservice"}
+{"level":"error","message":"Cannot divide by zero","service":"calculator-microservice"}
+{"level":"info","message":"Parameters 4 and 6 received for multiplication","service":"calculator-microservice"}
+{"level":"error","message":"num1 is incorrectly defined","service":"calculator-microservice"}
+{"level":"error","message":"num2 is incorrectly defined","service":"calculator-microservice"}

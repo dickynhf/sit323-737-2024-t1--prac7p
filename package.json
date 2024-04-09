@@ -1,0 +1,25 @@
+{
+  "name": "sit323_737-2024-t1-prac2p",
+  "version": "1.0.0",
+  "description": "An express project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dickynhf/sit323_737-2024-t1-prac2p.git"
+  },
+  "author": "Dicky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dickynhf/sit323_737-2024-t1-prac2p/issues"
+  },
+  "homepage": "https://github.com/dickynhf/sit323_737-2024-t1-prac2p#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "winston": "^3.13.0"
+  }
+}
