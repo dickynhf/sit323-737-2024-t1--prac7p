@@ -22,24 +22,40 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
+//Function 
+//
 // Define the addition operation
 const add = (num1,num2) => {
   return num1+num2;
 }
 
+// Function to perform exponentiation
+const exponentiate = (base, exponent) => {
+  return Math.pow(base, exponent);
+};
+
+// Function to calculate the square root of a number
+const sqrt = (num) => {
+  return Math.sqrt(num);
+};
+
+// Function to find the remainder of division of one number by another
+const modulo = (num1, num2) => {
+  return num1 % num2;
+};
+
+//Router
+//
 // Define the route for addition
 app.get("/add", (req, res) => {
   try{
   const num1 = parseFloat(req.query.num1);
   const num2 = parseFloat(req.query.num2);
-  if(isNaN(num1)) {
-    logger.error("num1 is incorrectly defined");
-    throw new Error("num1 incorrectly defined");
-}
-  if(isNaN(num2)) {
-    logger.error("num2 is incorrectly defined");
-    throw new Error("num2 incorrectly defined");
-}
+  if(isNaN(num1) || isNaN(num2)) {
+    const errorMsg = isNaN(num1) ? "num1 is incorrectly defined" : "num2 is incorrectly defined";
+    logger.error(errorMsg);
+    throw new Error(errorMsg);
+  }
 
 logger.info('Parameters '+num1+' and '+num2+' received for addition');
   const result = add(num1,num2);
@@ -55,14 +71,11 @@ app.get("/sub", (req, res) => {
   try {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
-    if(isNaN(num1)) {
-      logger.error("num1 is incorrectly defined");
-      throw new Error("num1 incorrectly defined");
-  }
-   if(isNaN(num2)) {
-      logger.error("num2 is incorrectly defined");
-      throw new Error("num2 incorrectly defined");
-  }
+    if(isNaN(num1) || isNaN(num2)) {
+      const errorMsg = isNaN(num1) ? "num1 is incorrectly defined" : "num2 is incorrectly defined";
+      logger.error(errorMsg);
+      throw new Error(errorMsg);
+    }
 
   logger.info('Parameters '+num1+' and '+num2+' received for subtraction')
     const result = num1 - num2;
@@ -78,14 +91,11 @@ app.get("/multi", (req, res) => {
   try {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
-    if(isNaN(num1)) {
-      logger.error("num1 is incorrectly defined");
-      throw new Error("num1 incorrectly defined");
-  }
-    if(isNaN(num2)) {
-      logger.error("num2 is incorrectly defined");
-      throw new Error("num2 incorrectly defined");
-  }
+    if(isNaN(num1) || isNaN(num2)) {
+      const errorMsg = isNaN(num1) ? "num1 is incorrectly defined" : "num2 is incorrectly defined";
+      logger.error(errorMsg);
+      throw new Error(errorMsg);
+    }
 
   logger.info('Parameters '+num1+' and '+num2+' received for multiplication')
     const result = num1 * num2;
@@ -101,21 +111,76 @@ app.get("/divide", (req, res) => {
   try {
     const num1 = parseFloat(req.query.num1);
     const num2 = parseFloat(req.query.num2);
-    if(isNaN(num1)) {
-      logger.error("num1 is incorrectly defined");
-      throw new Error("num1 incorrectly defined");
-  }
-    if(isNaN(num2)) {
-      logger.error("num2 is incorrectly defined");
-      throw new Error("num2 incorrectly defined");
-  }
+    if(isNaN(num1) || isNaN(num2)) {
+      const errorMsg = isNaN(num1) ? "num1 is incorrectly defined" : "num2 is incorrectly defined";
+      logger.error(errorMsg);
+      throw new Error(errorMsg);
+    }
     if (num2 === 0) {
       logger.error("Cannot divide by zero");
       throw new Error("Cannot divide by zero");
     }
 
-  logger.info('Parameters '+num1+' and '+num2+' received for division')
+    logger.info(`Parameters ${num1} and ${num2} received for division`);
     const result = num1 / num2;
+    res.status(200).json({ statusCode: 200, data: result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ statusCode: 500, msg: error.toString() });
+  }
+});
+
+// Exponentiation route
+app.get("/exp", (req, res) => {
+  try {
+    const base = parseFloat(req.query.base);
+    const exponent = parseFloat(req.query.exponent);
+    if(isNaN(base) || isNaN(exponent)) {
+      const errorMsg = isNaN(base) ? "Base is incorrectly defined" : "Exponent is incorrectly defined";
+      logger.error(errorMsg);
+      throw new Error(errorMsg);
+    }
+
+    logger.info(`Parameters ${base} and ${exponent} received for exponentiation`);
+    const result = exponentiate(base, exponent);
+    res.status(200).json({ statusCode: 200, data: result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ statusCode: 500, msg: error.toString() });
+  }
+});
+
+// Square root route
+app.get("/sqrt", (req, res) => {
+  try {
+    const num = parseFloat(req.query.num);
+    if(isNaN(num)) {
+      logger.error("Number is incorrectly defined for square root");
+      throw new Error("Number incorrectly defined for square root");
+    }
+
+    logger.info(`Parameter ${num} received for square root`);
+    const result = sqrt(num);
+    res.status(200).json({ statusCode: 200, data: result });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ statusCode: 500, msg: error.toString() });
+  }
+});
+
+// Modulo route
+app.get("/mod", (req, res) => {
+  try {
+    const num1 = parseFloat(req.query.num1);
+    const num2 = parseFloat(req.query.num2);
+    if(isNaN(num1) || isNaN(num2)) {
+      const errorMsg = isNaN(num1) ? "num1 is incorrectly defined" : "num2 is incorrectly defined";
+      logger.error(errorMsg);
+      throw new Error(errorMsg);
+    }
+
+    logger.info(`Parameters ${num1} and ${num2} received for modulo`);
+    const result = modulo(num1, num2);
     res.status(200).json({ statusCode: 200, data: result });
   } catch (error) {
     console.error(error);
