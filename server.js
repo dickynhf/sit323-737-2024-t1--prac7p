@@ -44,7 +44,7 @@ const modulo = (num1, num2) => {
   return num1 % num2;
 };
 
-//Router
+//Route
 //
 // Define the route for addition
 app.get("/add", (req, res) => {
