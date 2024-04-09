@@ -75,10 +75,35 @@ The microservice provides four main endpoints, each corresponding to an arithmet
 3. **Multiplication (`/multi`)**: Multiplies two numbers.
 4. **Division (`/divide`)**: Divides the first number by the second.
 
+### Advanced Arithmetic Operations
+
+5. **Exponentiation (`/power`)**: Raises the first number to the power of the second number.
+6. **Square Root (`/sqrt`)**: Calculates the square root of a number.
+7. **Modulo (`/mod`)**: Determines the remainder of the division of two numbers.
+
 ### Request Parameters
 
 - **num1**: The first number for the operation.
 - **num2**: The second number for the operation.
+
+For the **exponentiation** operation:
+
+- **base**: The base number.
+- **exponent**: The power to which the base number is raised.
+
+For the **square root** operation:
+
+- **number**: The number to calculate the square root of.
+
+### Example Usage
+
+- **Addition**: `/add?num1=5&num2=3`
+- **Subtraction**: `/sub?num1=5&num2=3`
+- **Multiplication**: `/multi?num1=5&num2=3`
+- **Division**: `/divide?num1=10&num2=2`
+- **Exponentiation**: `/power?base=2&exponent=3`
+- **Square Root**: `/sqrt?number=16`
+- **Modulo**: `/mod?num1=10&num2=3`
 
 ### Responses
 
