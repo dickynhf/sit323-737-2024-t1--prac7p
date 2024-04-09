@@ -17,13 +17,13 @@ To get Express Server up and running on your local machine, follow these steps:
 1. **Clone the Repository**: Start by cloning the Express Server repository to your local machine using the following command in your terminal or command prompt:
 
     ```sh
-    git clone https://github.com/dickynhf/sit323_737-2024-t1-prac4p.git
+    git clone https://github.com/dickynhf/sit323_737-2024-t1-prac4c.git
     ```
 
 2. **Navigate to the Project Directory**: Change into the project directory using:
 
     ```sh
-    cd sit323_737-2024-t1-prac4p
+    cd sit323_737-2024-t1-prac4c
     ```
 
 3. **Install Dependencies**: Install the necessary project dependencies by running:
@@ -31,10 +31,6 @@ To get Express Server up and running on your local machine, follow these steps:
     ```sh
     npm install
     ```
-
-## Configuring the Project
-
-This section can be modified based on your project's specific needs. If your project doesn't require additional configuration steps, you can omit this section.
 
 ## Running the Project
 
