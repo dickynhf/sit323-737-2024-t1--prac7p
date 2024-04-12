@@ -1,7 +1,7 @@
 // Import necessary modules
 const express = require("express");
 const app = express();
-const port = 3040;
+const port = 3000;
 const winston = require('winston');
 
 // Configure Winston for logging
@@ -186,6 +186,12 @@ app.get("/mod", (req, res) => {
     console.error(error);
     res.status(500).json({ statusCode: 500, msg: error.toString() });
   }
+});
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  console.log("Server is Healthy!");
+  res.status(200).send("Server is Healthy!");
 });
 
 // Serve the static HTML file from the public directory at the root route
