@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: node-web
+  name: node-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-web
+  template:
+    metadata:
+      labels:
+        app: node-web
+    spec:
+      containers:
+      - image: localhost:5000/node-web
+        name: node-web
+        imagePullPolicy: Never
