@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: node-web
-        image: localhost:5000/node-web
+        image: localhost:5000/node-web:latest

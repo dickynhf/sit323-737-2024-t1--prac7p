@@ -15,6 +15,6 @@ spec:
         app: node-web
     spec:
       containers:
-      - image: localhost:5000/node-web
+      - image: localhost:5000/node-web:latest
         name: node-web
         imagePullPolicy: Never
