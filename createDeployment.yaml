@@ -1,20 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: mydeployment
   labels:
-    app: node-web
-  name: node-web
+    app: myapp
+    tier: frontend
 spec:
-  replicas: 1
+  # modify replicas according to your case
+  replicas: 3
   selector:
     matchLabels:
-      app: node-web
+      tier: frontend
   template:
     metadata:
       labels:
-        app: node-web
+        tier: frontend
     spec:
       containers:
-      - image: localhost:5000/node-web:latest
-        name: node-web
-        imagePullPolicy: Never
+      - name: mynode
+        image: dickynhf/sit323_737-2024-t1-prac5p-node-web
+        ports:
+        - containerPort: 3040
